@@ -101,73 +101,117 @@ footer {
     margin-right: 30px !important;
   }
 }
-@media screen and (min-width: 375px) {
-  /* page d'acceuil*/
-  .header {
-    background: white;
-    z-index: 2;
-    font-family: "Shrikhand", cursive;
-    font-size: 40px;
-    height: 96px;
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-    position: sticky;
-    top: 0;
-    display: flex;
-    align-items: center;
-    width: 100%;
+/* page d'acceuil*/
+.loader__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeout 0.2s linear;
+  animation-delay: 2.5s;
+  animation-fill-mode: both;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  background-color: white;
+  z-index: 9999;
+  visibility: hidden;
+}
+
+@keyframes fadeout {
+  0% {
+    opacity: 1;
+    visibility: visible;
   }
-  .header .headerLogo {
-    margin: auto;
-    height: 48px;
-  }
-  .local {
-    display: flex;
-    justify-content: center;
-    padding: 20px 16px;
-    background-color: #f3f3f3;
-    font-size: 19px;
-    position: relative;
-  }
-  .local__text {
-    font-weight: 700;
-  }
-  .local__icon {
-    margin-right: 16px;
-  }
-  .homesection {
-    padding: 96px 32px;
-  }
-  .hero {
-    padding: 32px;
-    text-align: center;
-    background-color: #fafafa;
-    flex-direction: column;
-  }
-  .hero__title {
-    margin: 0;
-  }
-  .hero__subtitle {
-    font-weight: 300;
-    margin: 24px 0;
-  }
-  .hero__btn {
-    border: 0;
-    padding: 12px 24px;
-    font-weight: 500;
-    font-size: 18px;
-    border-radius: 100px;
-    color: #fff;
-    background-color: #686868;
-    background-image: linear-gradient(0deg, rgba(147, 86, 220, 0.9), rgba(255, 121, 218, 0.9));
-    cursor: pointer;
-    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
-    transition: transform 400ms;
-  }
-  .hero__btn:hover {
-    background-color: #fff;
-    box-shadow: 0.25rem 0.25rem 10px rgba(0, 0, 0, 0.5);
+  100% {
+    opacity: 0;
+    visibility: hidden;
   }
 }
+.loader {
+  border: 10px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 10px solid #9356DC;
+  width: 120px;
+  height: 120px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.header {
+  background: white;
+  z-index: 2;
+  font-family: "Shrikhand", cursive;
+  font-size: 40px;
+  height: 96px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  position: sticky;
+  top: 0;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+.header .headerLogo {
+  margin: auto;
+  height: 48px;
+}
+
+.local {
+  display: flex;
+  justify-content: center;
+  padding: 20px 16px;
+  background-color: #f3f3f3;
+  font-size: 19px;
+  position: relative;
+}
+.local__text {
+  font-weight: 700;
+}
+.local__icon {
+  margin-right: 16px;
+}
+
+.homesection {
+  padding: 96px 32px;
+}
+
+.hero {
+  padding: 32px;
+  text-align: center;
+  background-color: #fafafa;
+  flex-direction: column;
+}
+.hero__title {
+  margin: 0;
+}
+.hero__subtitle {
+  font-weight: 300;
+  margin: 24px 0;
+}
+.hero__btn {
+  border: 0;
+  padding: 12px 24px;
+  font-weight: 500;
+  font-size: 18px;
+  border-radius: 100px;
+  color: #fff;
+  background-color: #686868;
+  background-image: linear-gradient(0deg, rgba(147, 86, 220, 0.9), rgba(255, 121, 218, 0.9));
+  cursor: pointer;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
+  transition: transform 400ms;
+}
+.hero__btn:hover {
+  background-color: #fff;
+  box-shadow: 0.25rem 0.25rem 10px rgba(0, 0, 0, 0.5);
+}
+
 .tuto__title {
   margin-top: O;
 }
@@ -176,9 +220,10 @@ footer {
   margin: 0;
   padding: 0;
   list-style: none;
+  display: block;
 }
 @media screen and (min-width: 1000px) {
-  .tuto__steps .tuto__steps {
+  .tuto__steps {
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -197,7 +242,7 @@ footer {
   position: relative;
 }
 @media screen and (min-width: 1000px) {
-  .tuto__step .tuto__step {
+  .tuto__step {
     flex: 1 1 0%;
     margin: 0px 0px 0px 32px;
   }
@@ -307,6 +352,9 @@ footer {
   position: relative;
 }
 
+.fa-heart {
+  font-size: 30px;
+}
 .fa-heart:hover {
   font-weight: bold;
   animation: 0.3s heart;
@@ -341,24 +389,24 @@ footer {
     flex-direction: row;
     justify-content: flex-end;
   }
-  footer .footer__logo {
-    color: rgb(255, 255, 255);
-    font-family: Shrikhand, "cursive";
-    font-size: 19px;
-    margin: 0 16px 16px 0;
-  }
-  footer .footer__list {
-    list-style: none;
-    padding: 0px;
-    margin: 0px;
-  }
-  footer .footer__listElt {
-    margin: 8px 0px;
-  }
-  footer .footer__link {
-    color: rgb(255, 255, 255);
-    text-decoration: none;
-  }
+}
+footer .footer__logo {
+  color: rgb(255, 255, 255);
+  font-family: Shrikhand, "cursive";
+  font-size: 19px;
+  margin: 6px 0 0 0;
+}
+footer .footer__list {
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+}
+footer .footer__listElt {
+  margin: 8px 0px;
+}
+footer .footer__link {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
 }
 
 /* page restaurants*/

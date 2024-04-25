@@ -362,7 +362,7 @@ footer {
 }
 .fa-heart:hover {
   font-weight: bold;
-  animation: 0.3s heart;
+  animation: 0.1s heart;
   background: -webkit-linear-gradient(#9747FF, #ff79da);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
